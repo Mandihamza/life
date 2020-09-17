@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Conway's Game of Life
 
-## Available Scripts
+## Origins
 
-In the project directory, you can run:
+[Conway's Game of Life](https://www.conwaylife.com/wiki/Conway's_Game_of_Life) is the best known example of a [cellular automaton](https://en.wikipedia.org/wiki/Cellular_automaton) created by British Mathematician [John Horton Conway](https://en.wikipedia.org/wiki/John_Horton_Conway).
 
-### `yarn start`
+In October of 1970 [Martin Gardener](https://en.wikipedia.org/wiki/Martin_Gardner) introduced Life to the public in his "Mathematical Games" column in Scientific American. The game became an instant cult classic amongst computer programmers who could now access affordable minicomputers.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Since it's inception programmers have been taking on the challenge of programming their own versions of Life. This repo contains my version of Life, I hope you enjoy it!
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+## The rules of Life
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+After reading about John Von Neumann's research on creating self replicating machines, Conway was inspired to distill Neumann's original 29 states to the bare essentials. 
 
-### `yarn build`
+Over the course of [18 months of coffee breaks](https://www.youtube.com/watch?v=R9Plq-D1gEk) with his colleagues at Princeton, he devised a [set of rules and expectations](https://www.conwaylife.com/wiki/Conway%27s_Game_of_Life#cite_note-1) by experimenting on a go board.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![Life on a go board](https://upload.wikimedia.org/wikipedia/commons/1/18/%D0%98%D0%B3%D1%80%D0%B0_%22%D0%96%D0%B8%D0%B7%D0%BD%D1%8C%22.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Lev Kalmykov / CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0)
 
-### `yarn eject`
+### Rules:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Any live cell with fewer than two live neighbours dies (referred to as underpopulation or exposure).
+2. Any live cell with more than three live neighbours dies (referred to as overpopulation or overcrowding).
+3. Any live cell with two or three live neighbours lives, unchanged, to the next generation.
+4. Any dead cell with exactly three live neighbours will come to life.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Expectations:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. There should be no initial pattern for which there is a simple proof that the population can grow without limit.
+2. There should be initial patterns that apparently do grow without limit.
+3. There should be simple initial patterns that grow and change for a considerable period of time before coming to an end in the following possible ways:
+    - Fading away completely (from overcrowding or from becoming too sparse); or
+    - Settling into a stable configuration that remains unchanged thereafter, or entering an oscillating phase in which they repeat an endless cycle of two or more periods.
