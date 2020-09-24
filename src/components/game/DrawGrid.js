@@ -29,19 +29,19 @@ export const DrawGrid = () => {
   // initialize and store empty grid in useState hook
   const [grid, setGrid] = useState(() => {
     return DrawEmptyGrid()
-  });
+  })
 
   // store simulation status in state
-  const [running, setRunning] = useState(false);
+  const [running, setRunning] = useState(false)
 
   // track current simulation state in useRef hook
-  const runningRef = useRef(running);
-  runningRef.current = running;
+  const runningRef = useRef(running)
+  runningRef.current = running
 
   //function to begin running simulation (useCallback hook prevents rerunning the function on each render)
   const runSimulation = useCallback(() => {
     if (!runningRef.current) {
-      return;
+      return
     }
     // make a copy of the grid that can be mutated
     setGrid((currentGrid) => {
@@ -50,7 +50,7 @@ export const DrawGrid = () => {
           for (let j = 0; j < numCols; j++) {
             // count number of neighbors around each cell
             let neighbors = 0
-              operations.forEach(([x, y]) => {
+            operations.forEach(([x, y]) => {
               const newI = i + x
               const newJ = j + y
               // check bounds of grid
@@ -93,6 +93,20 @@ export const DrawGrid = () => {
         }}
       >
         Clear
+      </button>
+      <button
+        onClick={() => {
+          const rows = []
+          for (let i = 0; i < numRows; i++) {
+            rows.push(
+              Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0))
+            )
+          }
+
+          setGrid(rows)
+        }}
+      >
+        Randomize
       </button>
       <div
         style={{
