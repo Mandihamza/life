@@ -102,6 +102,7 @@ export const DrawGrid = () => {
       >
         Randomize
       </button>
+      
       <button
         style={{ minWidth: '15vw', minHeight: '5vh', backgroundColor: 'hotpink', borderRadius: '5px', fontSize: '1.6rem', margin: '1vw'}}
         onClick={() => {
