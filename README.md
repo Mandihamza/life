@@ -8,6 +8,8 @@ In October of 1970 [Martin Gardener](https://en.wikipedia.org/wiki/Martin_Gardne
 
 Since it's inception programmers have been taking on the challenge of programming their own versions of Life. This repo contains my version of Life, I hope you enjoy it!
 
+## [Click here to see my version of the game](https://mandihamza.github.io/life/)
+
 ---
 
 ## The rules of Life
