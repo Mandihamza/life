@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useRef } from 'react'
 import produce from 'immer'
 
+import DrawEmptyGrid from '../../logic/DrawEmptyGrid'
+
 const numRows = 50
 const numCols = 50
 
@@ -14,16 +16,6 @@ const operations = [
   [1, 0],
   [-1, 0],
 ]
-
-// initialize empty grid
-const DrawEmptyGrid = () => {
-  const rows = []
-  //builds 2d array of 0's
-  for (let i = 0; i < numRows; i++) {
-    rows.push(Array.from(Array(numCols), () => 0))
-  }
-  return rows
-}
 
 export const DrawGrid = () => {
   // initialize and store empty grid in useState hook
